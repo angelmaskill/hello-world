@@ -1,5 +1,7 @@
 package net.myl.business.mock;
 
+import java.util.Map;
+
 /**
  * @author 马彦卢
  * @version V1.0
@@ -9,4 +11,5 @@ package net.myl.business.mock;
  */
 public interface MayMockInterface {
     public String getString(String str);
+    public String getParam(String str, Map paraMap);
 }

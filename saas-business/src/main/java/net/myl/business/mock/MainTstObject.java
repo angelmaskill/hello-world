@@ -2,6 +2,8 @@ package net.myl.business.mock;
 
 import org.springframework.stereotype.Service;
 
+import java.util.Map;
+
 /**
  * @author 马彦卢
  * @version V1.0
@@ -15,6 +17,10 @@ public class MainTstObject {
 
     public String create(String str1, String str2) {
         return str1 + this.mayMockObject.getString(str2);
+    }
+
+    public String createParam(String str1, Map str2) {
+        return str1 + this.mayMockObject.getParam(str1, str2);
     }
 
     public void setMayMockObject(MayMockInterface mayMockObject) {
