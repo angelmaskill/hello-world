@@ -1,6 +1,7 @@
 package net.myl.business.controller;
 
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import net.myl.business.base.ApiResult;
 import net.myl.business.domain.SysNotice;
 import net.myl.business.service.ISysNoticeService;
@@ -29,6 +30,8 @@ public class SysNoticeController  {
     public ApiResult list() {
         PageHelper.startPage(1, 10);
         List<SysNotice> list = iSysNoticeService.selectNoticeList(new SysNotice());
+        PageInfo<SysNotice> pageInfo = new PageInfo<SysNotice>(list);
+        System.out.println(pageInfo.getTotal());
         return ApiResult.success(list);
     }
 }
