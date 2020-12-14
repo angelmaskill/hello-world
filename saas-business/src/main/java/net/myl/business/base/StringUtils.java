@@ -1092,4 +1092,26 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
         int num = (int) (new Random().nextDouble() * (100000 - 10000) + 10000);
         return sdf.format(new Date()) + num;
     }
+
+    /**
+     * 从request对象中提取请求参数
+     *
+     * @param values   request对象中的map参数
+     * @param isGetAll 是否获取所有的值
+     * @return 多个值用逗号隔开
+     */
+    public static String valueOf(String[] values, Boolean isGetAll) {
+        String valueStr = "";
+        if (isGetAll) {
+            for (int i = 0; i < values.length; i++) {
+                valueStr = (i == values.length - 1) ? valueStr + values[i] : valueStr + values[i] + ",";
+            }
+            return valueStr;
+        } else {
+            if (null == values || values.length == 0) {
+                return valueStr;
+            }
+            return values[0];
+        }
+    }
 }
