@@ -16,6 +16,7 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.Map;
@@ -44,7 +45,7 @@ public class SysNoticeController {
     }
 
     @GetMapping("/health")
-    public String health() {
+    public String health() throws IOException {
         ServletRequestAttributes servletRequestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = servletRequestAttributes.getRequest();
         String contentType = request.getContentType();
@@ -69,6 +70,9 @@ public class SysNoticeController {
 
         System.out.println("para map readerContent: " + HttpRequestUtil.getReaderContentFromHttpRequest(request));
         System.out.println("para map readerContent: " + new BodyReaderHttpServletRequestWrapper(request).getBodyString(request));
+
+        String content = HttpRequestUtil.readInputStream(request.getInputStream());
+        System.out.println("readInputStream content:" + content);
         return "UP";
     }
 }

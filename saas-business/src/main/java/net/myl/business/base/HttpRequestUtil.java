@@ -3,6 +3,7 @@ package net.myl.business.base;
 import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
@@ -64,5 +65,58 @@ public class HttpRequestUtil {
                 }
         }
         return result.toString();
+    }
+
+    public static String readInputStream(InputStream is) throws IOException {
+        return readInputStream(is, null);
+    }
+
+    public static String readInputStream(InputStream is, String charset) throws IOException {
+        if (is == null) {
+            return "";
+        }
+        charset = StringUtils.isEmpty(charset) ? "UTF-8" : charset;
+        StringBuffer sb = new StringBuffer();
+        byte[] tmp = new byte[1024];
+        int len = 0;
+        boolean once = true;
+        while ((len = is.read(tmp)) > 0) {
+            if (once) {
+                charset = recognizeEncode(tmp, 0, len, charset); //如果返回的结果为html类型文档，以文档声明的编码格式优先
+                once = false;
+            }
+            if (len == tmp.length) {
+                sb.append(new String(tmp, charset));
+                continue;
+            }
+            byte[] tail = new byte[len];
+            for (int i = 0; i < len; ++i) {
+                tail[i] = tmp[i];
+            }
+            sb.append(new String(tail, charset));
+        }
+        return sb.toString();
+    }
+
+    private static String recognizeEncode(byte[] headBytes, int offset, int lenth, String defaultEncode) {
+        String head = new String(headBytes, offset, lenth);
+        String[] marks = new String[]{"charset", "encoding"};
+        for (String mark : marks) {
+            int index = head.indexOf(mark);
+            if (index < 0) {
+                continue;
+            }
+            int start = head.indexOf("\"", index) + 1;
+            if (start < 1) {
+                continue;
+            }
+            int end = head.indexOf("\"", start);
+            if (end < 0) {
+                continue;
+            }
+            return head.substring(start, end);
+        }
+
+        return defaultEncode;
     }
 }
