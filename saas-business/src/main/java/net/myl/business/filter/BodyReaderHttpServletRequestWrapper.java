@@ -14,6 +14,7 @@ import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 
 /**
+ * 自定义HttpServletRequestWrapper, 实现字节流的重复读取.
  * @ClassName BodyReaderHttpServletRequestWrapper
  * @Description 读取字节流之后, 存到字节数组中.
  * @Author yanlu.myl

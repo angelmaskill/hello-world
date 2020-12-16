@@ -13,7 +13,7 @@ import java.io.IOException;
 
 /**
  * @ClassName HttpServletRequestReplacedFilter
- * @Description TODO
+ * @Description 自定义filter, 实现字节流的重复读取.
  * @Author yanlu.myl
  * @Date 2020-12-14 15:32
  */
