@@ -30,20 +30,14 @@ public class LoggerAspect extends HandlerInterceptorAdapter {
     public void around(ProceedingJoinPoint joinPoint) throws Throwable {
         MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
         Method method = methodSignature.getMethod();
-        Logger logger = (Logger) method.getAnnotation(Logger.class);
+        Logger logger = method.getAnnotation(Logger.class);
+
         Object value1 = AnnotationResolver.newInstance().resolver(joinPoint, logger.param1()); //利用AnnotationResolver进行解析
         alterAnnotationValue("param1", value1.toString(), logger);
+
         Object value2 = AnnotationResolver.newInstance().resolver(joinPoint, logger.param2());
 
         alterAnnotationValue("param2", value2.toString(), logger);
-
-        Object value3 = AnnotationResolver.newInstance().resolver(joinPoint, logger.param3());
-        alterAnnotationValue("param3", value3.toString(), logger);
-
-        Object value4 = AnnotationResolver.newInstance().resolver(joinPoint, logger.param4());
-        alterAnnotationValue("param4", value4.toString(), logger);
-
-        //执行处理
         Object result = joinPoint.proceed();
     }
 

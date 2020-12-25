@@ -17,6 +17,4 @@ import java.lang.annotation.Target;
 public @interface Logger {
     String param1() default "";
     String param2() default "" ;
-    String param3() default "" ;
-    String param4() default "" ;
 }
