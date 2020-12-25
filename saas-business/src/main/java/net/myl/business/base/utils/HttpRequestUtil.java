@@ -1,4 +1,4 @@
-package net.myl.business.base;
+package net.myl.business.base.utils;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedReader;

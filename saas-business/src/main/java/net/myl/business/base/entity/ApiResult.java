@@ -1,7 +1,9 @@
-package net.myl.business.base;
+package net.myl.business.base.entity;
 
 
 
+
+import net.myl.business.base.utils.StringUtils;
 
 import java.util.HashMap;
 

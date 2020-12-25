@@ -1,7 +1,7 @@
 package net.myl.business.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import net.myl.business.base.BaseEntity;
+import net.myl.business.base.entity.BaseEntity;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 

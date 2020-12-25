@@ -1,6 +1,6 @@
 package net.myl.business.mock;
 
-import net.myl.business.base.BaseJunitClassTest;
+import net.myl.business.base.utils.BaseJunitClassTest;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;

@@ -1,4 +1,4 @@
-package net.myl.business.base;
+package net.myl.business.base.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 

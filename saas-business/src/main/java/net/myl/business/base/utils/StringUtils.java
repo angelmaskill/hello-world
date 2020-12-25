@@ -1,4 +1,4 @@
-package net.myl.business.base;
+package net.myl.business.base.utils;
 
 import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.JSONObject;
