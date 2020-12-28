@@ -51,7 +51,7 @@ public class SysNoticeController {
         return ApiResult.success(list);
     }
 
-    @Logger(param3 = "#{id}", param4 = "常量")
+    @Logger(param1 = "#{id}", param2 = "常量")
     @RequestMapping("/test/{id}")
     public void test(@PathVariable String id) {
         printLoggerAttr();
@@ -98,8 +98,6 @@ public class SysNoticeController {
                     //插入到数据中
                     System.out.println(permissionOperation.param1());
                     System.out.println(permissionOperation.param2());
-                    System.out.println(permissionOperation.param3());
-                    System.out.println(permissionOperation.param4());
                 }
             }
         }
