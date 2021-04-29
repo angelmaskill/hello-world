@@ -26,7 +26,6 @@ import java.util.List;
 
 /**
  * 基础业务数据数据库配置
- * Created by sw on 2020/4/13.
  *
  */
 @Configuration

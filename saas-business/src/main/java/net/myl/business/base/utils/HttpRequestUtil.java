@@ -42,7 +42,6 @@ public class HttpRequestUtil {
     /**
      * @param request httprequest对象
      * @return 请求参数xml
-     * @author sw
      * @Title: parseUmpayNotify
      * @Description: 异步通知参数解析
      * @createTime : 2017年12月21日下午5:24:25
