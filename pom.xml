@@ -10,6 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>saas-business</module>
+        <module>util-disruptor</module>
     </modules>
     <properties>
         <java.version>1.8</java.version>
